@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import logo from '../../../Assets/taskupkeep.PNG'
 const Navbar = () => {
     return (
@@ -8,26 +9,26 @@ const Navbar = () => {
                 <div className="px-8 mx-auto max-w-9xl">
                     <div className="flex items-center justify-between h-16">
                         <div className="w-full justify-between flex items-center">
-                            <a className="flex-shrink-0 p-2" href="/">
+                            <Link className="flex-shrink-0 p-2" to="/">
                                 <img className="w-27 h-12" src={logo} alt="Workflow" />
-                            </a>
+                            </Link>
                             <div className="hidden md:block">
                                 <div className="flex items-baseline ml-10 space-x-4">
-                                    <a className="text-gray-300  hover:text-gray-800 dark:hover:text-white px-3 py-2 rounded-md text-sm font-medium" href="/home">
+                                    <Link className="text-gray-300  hover:text-gray-800 dark:hover:text-white px-3 py-2 rounded-md text-sm font-medium" to="/home">
                                         Home
-                                    </a>
-                                    <a className="text-gray-800 dark:text-white  hover:text-gray-800 dark:hover:text-white px-3 py-2 rounded-md text-sm font-medium" href="/addtask">
+                                    </Link>
+                                    <Link className="text-gray-800 dark:text-white  hover:text-gray-800 dark:hover:text-white px-3 py-2 rounded-md text-sm font-medium" to="/addtask">
                                         Add Task
-                                    </a>
-                                    <a className="text-gray-300  hover:text-gray-800 dark:hover:text-white px-3 py-2 rounded-md text-sm font-medium" href="/mytask">
+                                    </Link>
+                                    <Link className="text-gray-300  hover:text-gray-800 dark:hover:text-white px-3 py-2 rounded-md text-sm font-medium" to="/mytask">
                                         My Task
-                                    </a>
-                                    <a className="text-gray-300  hover:text-gray-800 dark:hover:text-white px-3 py-2 rounded-md text-sm font-medium" href="/completedtask">
+                                    </Link>
+                                    <Link className="text-gray-300  hover:text-gray-800 dark:hover:text-white px-3 py-2 rounded-md text-sm font-medium" to="/completedtask">
                                         Completed Task
-                                    </a>
-                                    <a className="text-gray-300  hover:text-gray-800 dark:hover:text-white px-3 py-2 rounded-md text-sm font-medium" href="/login">
+                                    </Link>
+                                    <Link className="text-gray-300  hover:text-gray-800 dark:hover:text-white px-3 py-2 rounded-md text-sm font-medium" to="/login">
                                         Login
-                                    </a>
+                                    </Link>
                                 </div>
                             </div>
                         </div>
@@ -47,21 +48,21 @@ const Navbar = () => {
                 </div>
                 <div className="md:hidden">
                     <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-                        <a className="text-gray-300 hover:text-gray-800 dark:hover:text-white block px-3 py-2 rounded-md text-base font-medium" href="/home">
+                        <Link className="text-gray-300 hover:text-gray-800 dark:hover:text-white block px-3 py-2 rounded-md text-base font-medium" to="/home">
                             Home
-                        </a>
-                        <a className="text-gray-800 dark:text-white block px-3 py-2 rounded-md text-base font-medium" href="/addtask">
+                        </Link>
+                        <Link className="text-gray-800 dark:text-white block px-3 py-2 rounded-md text-base font-medium" to="/addtask">
                             Add Task
-                        </a>
-                        <a className="text-gray-300 hover:text-gray-800 dark:hover:text-white block px-3 py-2 rounded-md text-base font-medium" href="/mytask">
+                        </Link>
+                        <Link className="text-gray-300 hover:text-gray-800 dark:hover:text-white block px-3 py-2 rounded-md text-base font-medium" to="/mytask">
                             My Task
-                        </a>
-                        <a className="text-gray-300 hover:text-gray-800 dark:hover:text-white block px-3 py-2 rounded-md text-base font-medium" href="/completedtask">
+                        </Link>
+                        <Link className="text-gray-300 hover:text-gray-800 dark:hover:text-white block px-3 py-2 rounded-md text-base font-medium" to="/completedtask">
                             Completed Task
-                        </a>
-                        <a className="text-gray-300 hover:text-gray-800 dark:hover:text-white block px-3 py-2 rounded-md text-base font-medium" href="/login">
+                        </Link>
+                        <Link className="text-gray-300 hover:text-gray-800 dark:hover:text-white block px-3 py-2 rounded-md text-base font-medium" to="/login">
                             Login
-                        </a>
+                        </Link>
                     </div>
                 </div>
             </nav>
