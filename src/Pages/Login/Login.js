@@ -1,19 +1,6 @@
-// import React from 'react';
-
-// const Login = () => {
-//     return (
-//         <div>
-//             <h1>Login</h1>
-//         </div>
-//     );
-// };
-
-// export default Login;
-
 
 import React, { useContext, useState } from 'react';
 import { GoogleAuthProvider } from 'firebase/auth';
-
 import { useForm } from 'react-hook-form';
 import { toast } from 'react-hot-toast';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
@@ -45,7 +32,7 @@ const Login = () => {
                 const user = result.user;
                 console.log(user);
                 toast('Login Successful!')
-
+                navigate(from, { replace: true });
 
             })
             .catch(error => {

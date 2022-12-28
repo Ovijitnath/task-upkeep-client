@@ -1,36 +1,19 @@
-// import React from 'react';
-
-// const Register = () => {
-//     return (
-//         <div>
-//             <h1>Register</h1>
-//         </div>
-//     );
-// };
-
-// export default Register;
-
-
 
 import React, { useContext, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import toast from 'react-hot-toast';
 import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../Context/AuthProvider';
-// import useToken from '../../Hooks/useToken';
+
 
 const Register = () => {
     const { register, handleSubmit, formState: { errors } } = useForm();
-    const { createUser, updateUser } = useContext(AuthContext);
+    const { createUser } = useContext(AuthContext);
+    // const { createUser, updateUser } = useContext(AuthContext);
     const [signUpError, setSignUPError] = useState('');
-    const [createdUserEmail, setCreatedUserEmail] = useState('');
+    // const [createdUserEmail, setCreatedUserEmail] = useState('');
     // const [token] = useToken(createdUserEmail);
-    // const navigate = useNavigate();
-
-
-    // if (token) {
-    //     navigate('/');
-    // }
+    const navigate = useNavigate();
 
     const handleSignUp = (data) => {
         console.log(data);
@@ -40,9 +23,10 @@ const Register = () => {
                 const user = result.user;
                 console.log(user);
                 toast('User Created Successfully.')
-                const userInfo = {
-                    displayName: data.name
-                }
+                navigate('/')
+                // const userInfo = {
+                //     displayName: data.name
+                // }
                 // updateUser(userInfo)
                 //     .then(() => {
                 //         saveUser(data.name, data.email);

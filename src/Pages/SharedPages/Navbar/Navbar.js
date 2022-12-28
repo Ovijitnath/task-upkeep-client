@@ -1,7 +1,16 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import logo from '../../../Assets/taskupkeep.PNG'
+import { AuthContext } from '../../../Context/AuthProvider';
 const Navbar = () => {
+
+
+    const { user, logOut } = useContext(AuthContext);
+    const handleLogOut = () => {
+        logOut()
+            .then(() => { })
+            .catch(err => console.log(err));
+    }
     return (
 
         <div>
@@ -26,9 +35,14 @@ const Navbar = () => {
                                     <Link className="text-gray-300  hover:text-gray-800 dark:hover:text-white px-3 py-2 rounded-md text-sm font-medium" to="/completedtask">
                                         Completed Task
                                     </Link>
-                                    <Link className="text-gray-300  hover:text-gray-800 dark:hover:text-white px-3 py-2 rounded-md text-sm font-medium" to="/login">
-                                        Login
-                                    </Link>
+
+                                    {user?.uid ?
+                                        <>
+
+                                            <Link className="text-gray-300  hover:text-gray-800 dark:hover:text-white px-3 py-2 rounded-md text-sm font-medium" ><button onClick={handleLogOut}>Log out</button></Link>
+                                        </>
+                                        : <Link className="text-gray-300  hover:text-gray-800 dark:hover:text-white px-3 py-2 rounded-md text-sm font-medium" ><Link to="/login">Login</Link></Link>}
+
                                 </div>
                             </div>
                         </div>
@@ -60,9 +74,12 @@ const Navbar = () => {
                         <Link className="text-gray-300 hover:text-gray-800 dark:hover:text-white block px-3 py-2 rounded-md text-base font-medium" to="/completedtask">
                             Completed Task
                         </Link>
-                        <Link className="text-gray-300 hover:text-gray-800 dark:hover:text-white block px-3 py-2 rounded-md text-base font-medium" to="/login">
-                            Login
-                        </Link>
+                        {user?.uid ?
+                            <>
+
+                                <Link className="text-gray-300  hover:text-gray-800 dark:hover:text-white px-3 py-2 rounded-md text-sm font-medium" ><button onClick={handleLogOut}>Log out</button></Link>
+                            </>
+                            : <Link className="text-gray-300  hover:text-gray-800 dark:hover:text-white px-3 py-2 rounded-md text-sm font-medium" ><Link to="/login">Login</Link></Link>}
                     </div>
                 </div>
             </nav>
