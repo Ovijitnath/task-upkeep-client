@@ -34,9 +34,7 @@ const Home = () => {
                                 </span>
                             </h2>
                             <p className="pr-5 mb-5 text-base text-gray-700 md:text-lg">
-                                Sed ut perspiciatis unde omnis iste natus error sit voluptatem
-                                accusantium doloremque laudantium, totam rem aperiam, eaque ipsa
-                                quae. explicabo.
+                                The <strong>Task-Upkeep</strong> Task Manager is a powerful tool packed with useful information, from your system’s overall resource usage to detailed statistics about each process. This guide explains every feature and technical term in the Task Manager.
                             </p>
                             <div className="flex items-center">
                                 <a
@@ -66,9 +64,6 @@ const Home = () => {
                         <div className="flex flex-col justify-center">
                             <div className="max-w-xl mb-6">
                                 <div>
-                                    {/* <p className="inline-block px-3 py-px mb-4 text-xs font-semibold tracking-wider text-teal-900 uppercase rounded-full bg-teal-accent-400">
-                                        Brand new
-                                    </p> */}
                                 </div>
                                 <h2 className="max-w-lg mb-6 font-sans text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl sm:leading-none">
                                     Innovative analytics
@@ -79,9 +74,7 @@ const Home = () => {
                                     </span>
                                 </h2>
                                 <p className="text-base text-gray-700 md:text-lg">
-                                    Sed ut perspiciatis unde omnis iste natus error sit voluptatem
-                                    accusantium doloremque laudantium, totam rem aperiam, eaque ipsa
-                                    quae. explicabo.
+                                    The most common ethnicity among task managers is White, which makes up 69.7% of all task managers. Comparatively, there are 12.2% of the Hispanic or Latino ethnicity and 8.2% of the Asian ethnicity.
                                 </p>
                             </div>
                             <a
@@ -146,9 +139,7 @@ const Home = () => {
                                     Join Team
                                 </h5>
                                 <p className="mb-5 text-gray-700">
-                                    Sed ut perspiciatis unde omnis iste natus error sit voluptatem
-                                    accusantium doloremque rem aperiam, eaque ipsa quae. Sed ut
-                                    perspiciatis unde.
+                                    Our People are the reason we are able to accomplish extraordinary things. We are always in search of Extraordinary Individuals to join our Team.We support our employees in raising their own competences through participation in trainings and conferences in the field of specialist knowledge and soft skills.
                                 </p>
                                 <button
                                     type="submit"
@@ -172,9 +163,7 @@ const Home = () => {
                                     Hire Us
                                 </h5>
                                 <p className="mb-5 text-gray-700">
-                                    Sed ut perspiciatis unde omnis iste natus error sit voluptatem
-                                    accusantium doloremque rem aperiam, eaque ipsa quae. Sed ut
-                                    perspiciatis unde.
+                                    By starting with one of our templates to create the basic structure of your website, you’ll give us a head start on the build. Butyou don’t want to look the same as everyone else,We’ve perfected our signature ‘live build’ process that puts you in the driving set. Instant feedback. No endless rounds of revisions and missed deadlines.
                                 </p>
                                 <button
                                     type="submit"

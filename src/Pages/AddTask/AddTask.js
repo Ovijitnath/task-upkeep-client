@@ -1,59 +1,51 @@
 import React from 'react';
 import { useForm } from 'react-hook-form';
+import { toast } from 'react-hot-toast';
+import { useNavigate } from 'react-router-dom';
+// import { AuthContext } from '../../Context/AuthProvider';
 
 const AddTask = () => {
-    const { register, handleSubmit, formState: { errors } } = useForm();
-    // const imageHostKey = process.env.REACT_APP_imgbb_key;
 
-    const handleAddProduct = data => {
+    // const { user } = useContext(AuthContext);
+    const { register, handleSubmit, formState: { errors } } = useForm();
+    const imageHostKey = process.env.REACT_APP_imgbb_key;
+
+    const navigate = useNavigate();
+
+    const handleAddTask = data => {
         const image = data.image[0];
         const formData = new FormData();
-        // formData.append('image', image);
-        // const url = `https://api.imgbb.com/1/upload?expiration=600&key=${imageHostKey}`
-        // fetch(url, {
-        //     method: 'POST',
-        //     body: formData
-        // })
-        //     .then(res => res.json())
-        //     .then(imgData => {
-        //         if (imgData.success) {
-        //             const product = {
-        //                 name: data.name,
+        formData.append('image', image);
+        const url = `https://api.imgbb.com/1/upload?expiration=600&key=${imageHostKey}`
+        fetch(url, {
+            method: 'POST',
+            body: formData
+        })
+            .then(res => res.json())
+            .then(imgData => {
+                if (imgData.success) {
+                    const task = {
+                        name: data.name,
+                        email: data.email,
+                        activities: data.activities,
+                        picture: imgData.data.url,
+                    }
 
-        //                 category_id: data.category,
-        //                 picture: imgData.data.url,
-
-        //                 sellersName: data.sellerName,
-        //                 location: data.location,
-        //                 originalPrice: data.orprice,
-        //                 condition: data.condition,
-        //                 resalePrice: data.reprice,
-        //                 yearOfUse: data.year,
-        //                 postedTime: data.time
-
-        //             }
-        //             console.log(product)
-
-
-        //             fetch('https://find-uke-server.vercel.app/catagory', {
-        //                 method: 'POST',
-        //                 headers: {
-        //                     'content-type': 'application/json',
-        //                     authorization: `bearer ${localStorage.getItem('accessToken')}`
-        //                 },
-        //                 body: JSON.stringify(product)
-        //             })
-        //                 .then(res => res.json())
-        //                 .then(result => {
-        //                     console.log(result);
-        //                     toast.success(`${data.name} is added successfully`);
-
-        //                 })
-
-
-
-        //     }
-        // })
+                    fetch('http://localhost:5000/alltasks', {
+                        method: 'POST',
+                        headers: {
+                            'content-type': 'application/json',
+                        },
+                        body: JSON.stringify(task)
+                    })
+                        .then(res => res.json())
+                        .then(result => {
+                            console.log(result);
+                            toast.success(`${data.activities} is added successfully`);
+                            navigate('/mytask')
+                        })
+                }
+            })
     }
 
     return (
@@ -64,7 +56,7 @@ const AddTask = () => {
 
                 <div className='w-96 p-4 bg-cyan-100 border my-5'>
                     <div className='flex justify-center items-center py-5'>
-                        <form onSubmit={handleSubmit(handleAddProduct)}>
+                        <form onSubmit={handleSubmit(handleAddTask)}>
                             <div className="form-control w-full max-w-xs">
                                 <label className="label"> <span className="label-text">Name</span></label>
                                 <input type="text" {...register("name", {
@@ -72,10 +64,17 @@ const AddTask = () => {
                                 })} className="input input-bordered w-full max-w-xs" />
 
                             </div>
+                            <div className="form-control w-full max-w-xs">
+                                <label className="label"> <span className="label-text">Email</span></label>
+                                <input type="email" {...register("email", {
+                                    required: "Email is Required"
+                                })} className="input input-bordered w-full max-w-xs" />
+
+                            </div>
 
                             <div className="form-control w-full max-w-xs">
                                 <label className="label"> <span className="label-text">Activities</span></label>
-                                <input type="text" {...register("location", {
+                                <input type="text" {...register("activities", {
                                     required: "Name is Required"
                                 })} className="input input-bordered w-full max-w-xs" />
 

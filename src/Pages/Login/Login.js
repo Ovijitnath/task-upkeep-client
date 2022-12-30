@@ -1,12 +1,9 @@
-
 import React, { useContext, useState } from 'react';
 import { GoogleAuthProvider } from 'firebase/auth';
 import { useForm } from 'react-hook-form';
 import { toast } from 'react-hot-toast';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../Context/AuthProvider';
-// import useToken from '../../Hooks/useToken';
-
 
 
 const Login = () => {
@@ -15,7 +12,7 @@ const Login = () => {
     const { providerLogin, signIn } = useContext(AuthContext);
     const [loginError, setLoginError] = useState('');
     // const [loginUserEmail, setLoginUserEmail] = useState('');
-    // const [token] = useToken(loginUserEmail);
+
 
     const location = useLocation();
     const navigate = useNavigate();
